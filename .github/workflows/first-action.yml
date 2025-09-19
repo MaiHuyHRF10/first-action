@@ -1,10 +1,17 @@
-name: First Workflow
-on: workflow_dispatch
+name: Test Project
+on: push
 jobs:
-  first-job:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: Echo
-        run: |
-          echo "First output"
-          echo "Second output"
+      - name: Get code
+        uses: actions/checkout@v5
+      - name: Install NodeJS
+        uses: actions/setup-node@v5
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm ci
+      - name: Run test
+        run: npm test
+
