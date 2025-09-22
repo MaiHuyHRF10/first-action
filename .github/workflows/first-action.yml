@@ -28,5 +28,5 @@ jobs:
       - name: Build project
         run: npm run build
       - name: Deploy...
-        run: Echo "Waiting for deploy..."
+        run: echo "Waiting for deploy..."
 
