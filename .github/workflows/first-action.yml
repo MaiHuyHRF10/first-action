@@ -1,7 +1,11 @@
 name: CI Run
-on: issues
+on:
+  pull_request:
+    types:
+      - opened
+  workflow_dispatch:
 jobs:
-  trigger_issues:
+  trigger_ci_by_event:
     runs-on: ubuntu-latest
     steps:
       - name: Log Event
